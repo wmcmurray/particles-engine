@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particles Engine - demo</title>
+
+    <!-- CSS stylesheets -->
+    <link href="../lib/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../lib/vendor/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+    <link href="../lib/particles-engine/style.css" rel="stylesheet" type="text/css">
+    <link href="styles/all.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="particles"></div>
+
+    <div class="container" id="demo">
+        <div id="demo-nav">
+            <a href="javascript: pe.startEmitters();" class="btn btn-inverse">start all</a>
+            <a href="javascript: pe.stopEmitters();" class="btn btn-inverse">stop all</a>
+            -
+            <a href="javascript: onlyType('fire');" class="btn btn-inverse">fire only</a>
+            <a href="javascript: onlyType('ice');" class="btn btn-inverse">ice only</a>
+            <a href="javascript: onlyType('smoke');" class="btn btn-inverse">smoke only</a>
+            <a href="javascript: onlyType('radiation');" class="btn btn-inverse">radiation only</a>
+        </div>
+
+        <div id="demo-content">
+            <h1>3D Particles Engine demo</h1>
+            <div class="help">*click on emitters to toogle them ON/OFF</div>
+            <h2>Fixed basic emitters</h2>
+            <div class="row">
+                <div class="span3">
+                    <h3 id="fireTitle" class="fire emitter">FIRE</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                    
+                </div>
+                <div class="span3">
+                    <h3 id="iceTitle" class="ice emitter">ICE</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                </div>
+                <div class="span3">
+                    <h3 id="smokeTitle" class="smoke emitter">SMOKE</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                </div>
+                <div class="span3">
+                    <h3 id="radiationTitle" class="radiation emitter">RADIATION</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                </div>
+            </div>
+
+            <h2>Fixed combined emitters</h2>
+            <div class="row">
+                <div class="span3">
+                    <h3 id="combined1" class="neutral emitter">FIRE + SMOKE</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                    
+                </div>
+                <div class="span3">
+                    <h3 id="combined2" class="neutral emitter">FIRE + ICE</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                </div>
+                <div class="span3">
+                    <h3 id="combined3" class="neutral emitter">RAD + SMOKE</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                </div>
+                <div class="span3">
+                    <h3 id="combined4" class="neutral emitter">EVERYTHING!</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                </div>
+            </div>
+
+            <h2>Moving emitters</h2>
+            <div id="fireBall" class="fire moving emitter">FIRE</div>
+            <div id="iceBall" class="ice moving emitter">ICE</div>
+            <div id="smokeBall" class="smoke moving emitter">SMOKE</div>
+            <div id="radiationBall" class="radiation moving emitter">RAD</div>
+        </div>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="../lib/vendor/jquery-2.0.2.min.js"></script>
+    <script src="../lib/vendor/greensock/TweenMax.min.js"></script>
+    <script src="../lib/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../lib/particles-engine/ParticlesEngine.js"></script>
+    <script src="../lib/particles-engine/ParticlesEmitter.js"></script>
+    <script src="../lib/particles-engine/Particle.js"></script>
+    <script src="../lib/particles-engine/Vector.js"></script>
+    <script src="js/start.js"></script>
+</body>
+</html>

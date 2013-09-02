@@ -1,4 +1,4 @@
-particules-system
+particles-engine
 =================
 
-Lets try to make a 3D particules system in javascript
+This project is only an experiment at this stage.

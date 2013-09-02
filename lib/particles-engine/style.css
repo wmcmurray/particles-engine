@@ -1,0 +1,22 @@
+.particle
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: block;
+	min-width: 1px;
+	min-height: 1px;
+	font-size: 10px;
+}
+
+.particle.default
+{
+	/*box-shadow: rgba(255,255,255, 0.75) 0px 0px 10px, rgba(0,0,0, 0.3) 0px 0px 3px inset;*/
+	background: rgba(255,255,255, 1);
+}
+
+.particle.fire
+{
+	/*box-shadow: rgba(255,249,77, 0.75) 0px 0px 10px, rgba(0,0,0, 0.3) 0px 0px 3px inset;
+	background: #FAAF2D;*/
+}
