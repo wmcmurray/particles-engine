@@ -17,22 +17,42 @@
 
     <div class="container" id="demo">
         <div id="demo-nav">
-            <a href="javascript: pe.startEmitters();" class="btn btn-inverse">start all</a>
-            <a href="javascript: pe.stopEmitters();" class="btn btn-inverse">stop all</a>
+            <a href="javascript:void(0);" onclick="pe.startEmitters();" class="btn btn-inverse">start all</a>
+            <a href="javascript:void(0);" onclick="pe.stopEmitters();" class="btn btn-inverse">stop all</a>
             -
-            <a href="javascript: onlyType('fire');" class="btn btn-inverse">fire only</a>
-            <a href="javascript: onlyType('ice');" class="btn btn-inverse">ice only</a>
-            <a href="javascript: onlyType('smoke');" class="btn btn-inverse">smoke only</a>
-            <a href="javascript: onlyType('radiation');" class="btn btn-inverse">radiation only</a>
+            <a href="javascript:void(0);" onclick="onlyType('fire');" class="btn btn-inverse">fire only</a>
+            <a href="javascript:void(0);" onclick="onlyType('ice');" class="btn btn-inverse" id="auto-click">ice only</a>
+            <a href="javascript:void(0);" onclick="onlyType('smoke');" class="btn btn-inverse">smoke only</a>
+            <a href="javascript:void(0);" onclick="onlyType('radiation');" class="btn btn-inverse">radiation only</a>
             -
             <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,300,0);" class="btn btn-inverse">gravity down</a>
-            <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,0,-300);" class="btn btn-inverse">gravity front</a>
+            <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,0,-500);" class="btn btn-inverse">gravity front</a>
             <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,0,0);" class="btn btn-inverse">gravity none</a>
         </div>
 
         <div id="demo-content">
             <h1>3D Particles Engine demo</h1>
             <div class="help">*click on emitters to toogle them ON/OFF</div>
+
+            <h2>Emitters in a 3D cube (experimental)</h2>
+
+            <div class="scene3D">
+                <div id="cubeNav">
+                    <a href="javascript:void(0);" onclick="TweenMax.to('.cube', 1, {rotationX: '90deg'});" class="btn btn-inverse">up</a>
+                    <a href="javascript:void(0);" onclick="TweenMax.to('.cube', 1, {rotationX: '0deg'});" class="btn btn-inverse">center</a>
+                    <a href="javascript:void(0);" onclick="TweenMax.to('.cube', 1, {rotationX: '-90deg'});" class="btn btn-inverse">down</a>
+                </div>
+                <div class="cube">
+                    <!-- <div id="cubeEmitter" class="fire emitter">FIRE</div> -->
+                    <div class="face front fire emitter" id="cubeEmitterFront">FIRE</div>
+                    <div class="face back ice emitter" id="cubeEmitterBack">ICE</div>
+                    <div class="face top emitter" id="cubeEmitterTop"></div>
+                    <div class="face bottom emitter" id="cubeEmitterBottom"></div>
+                    <div class="face left smoke emitter" id="cubeEmitterLeft">SMOKE</div>
+                    <div class="face right radiation emitter" id="cubeEmitterRight">RADIATION</div>
+                </div>
+            </div>
+
             <h2>Fixed basic emitters</h2>
             <div class="row">
                 <div class="span3">

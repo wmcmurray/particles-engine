@@ -11,7 +11,7 @@ var ParticlesLib =
         type: "fire",
         src: "images/fire.png",
         lifetime: 1,
-        size: 100,
+        size: 140,
         mass: -2,
         sticky: 2
     },
@@ -193,6 +193,40 @@ pe.createEmitter("#combined4",
     particles: ParticlesLib.smoke
 });
 
+// ---------------------------------------------
+pe.createEmitter("#cubeEmitterFront",
+{
+    pps: 20,
+    spread: 100,
+    from: "random",
+    particles: ParticlesLib.fire
+});
+
+
+pe.createEmitter("#cubeEmitterBack",
+{
+    pps: 5,
+    spread: 100,
+    from: "random",
+    particles: ParticlesLib.ice
+});
+
+pe.createEmitter("#cubeEmitterLeft",
+{
+    pps: 5,
+    spread: 100,
+    from: "random",
+    particles: ParticlesLib.smoke
+});
+
+pe.createEmitter("#cubeEmitterRight",
+{
+    pps: 5,
+    spread: 100,
+    from: "random",
+    particles: ParticlesLib.radiation
+});
+
 
 // some user interraction stuff
 // ==============================================================
@@ -210,7 +244,7 @@ jQuery(".moving.emitter").each(function()
     var elem = this;
     var delay = (speed / 4) * i++;
 
-    TweenMax.to(elem, speed, {left: "75%", z: -100, yoyo: true, repeat: -1, ease: Linear.easeInOut, delay: delay, onRepeat: function()
+    TweenMax.to(elem, speed, {left: "85%", z: -100, yoyo: true, repeat: -1, ease: Linear.easeInOut, delay: delay, onRepeat: function()
     {
         TweenMax.to(elem, 0.5, {top: "-50px", ease: Quad.easeOut, onComplete: function()
         {
@@ -218,6 +252,10 @@ jQuery(".moving.emitter").each(function()
         }});
     }});
 });
+
+
+
+TweenMax.to(".cube", 5, {rotationY: "360deg", y: 0, repeat: -1, ease: Linear.easeInOut});
 
 function onlyType(type)
 {
@@ -233,3 +271,8 @@ function onlyType(type)
         }
     }
 }
+
+
+jQuery(window).ready(function(){
+    jQuery("#auto-click").trigger("click");
+});
