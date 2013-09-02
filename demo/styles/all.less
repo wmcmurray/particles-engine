@@ -150,8 +150,8 @@ h3.emitter
 .scene3D
 {
     perspective: 300px;
-    parspective-origin: 50% 50%;
-    transform-style: preserve-3d;
+    -webkit-perspective: 300;
+    perspective-origin: 50% 50%;
     position: relative;
     padding: 70px 0px 50px 0px;
 
@@ -186,7 +186,7 @@ h3.emitter
     @size: 180px;
     @halfSize: @size / 2;
     transform-style: preserve-3d;
-    transform: rotate3D(0, 0, 0, 40deg);
+    -webkit-transform-style: preserve-3d;
     position: relative;
     width: @size;
     height: @size;
@@ -196,6 +196,7 @@ h3.emitter
     {
         @color: #111;
         transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
         box-shadow: rgba(255,255,255,0.2) 0px 0px 50px inset;
         //box-shadow: none;
         text-shadow: @color 0px 0px 10px;
@@ -221,31 +222,37 @@ h3.emitter
         &.front
         {
             transform: ~"rotate3D(0, 0, 0, 0deg) translate3d(0, 0, @{halfSize})";
+            -webkit-transform: ~"rotate3D(0, 0, 0, 0deg) translate3d(0, 0, @{halfSize})";
         }
 
         &.back
         {
             transform: ~"rotate3D(1, 0, 0, 180deg) translate3d(0, 0, @{halfSize})";
+            -webkit-transform: ~"rotate3D(1, 0, 0, 180deg) translate3d(0, 0, @{halfSize})";
         }
 
         &.top
         {
             transform: ~"rotate3D(1, 0, 0, 90deg) translate3d(0, 0, @{halfSize})";
+            -webkit-transform: ~"rotate3D(1, 0, 0, 90deg) translate3d(0, 0, @{halfSize})";
         }
 
         &.bottom
         {
             transform: ~"rotate3D(1, 0, 0, -90deg) translate3d(0, 0, @{halfSize})";
+            -webkit-transform: ~"rotate3D(1, 0, 0, -90deg) translate3d(0, 0, @{halfSize})";
         }
 
         &.left
         {
             transform: ~"rotate3D(0, 1, 0, -90deg) translate3d(0, 0, @{halfSize})";
+            -webkit-transform: ~"rotate3D(0, 1, 0, -90deg) translate3d(0, 0, @{halfSize})";
         }
 
         &.right
         {
             transform: ~"rotate3D(0, 1, 0, 90deg) translate3d(0, 0, @{halfSize})";
+            -webkit-transform: ~"rotate3D(0, 1, 0, 90deg) translate3d(0, 0, @{halfSize})";
         }
     }
 }
