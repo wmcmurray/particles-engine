@@ -212,7 +212,7 @@ jQuery(".moving.emitter").each(function()
 
     TweenMax.to(elem, speed, {left: "75%", z: -100, yoyo: true, repeat: -1, ease: Linear.easeInOut, delay: delay, onRepeat: function()
     {
-        TweenMax.to(elem, 0.5, {top: "-100px", ease: Quad.easeOut, onComplete: function()
+        TweenMax.to(elem, 0.5, {top: "-50px", ease: Quad.easeOut, onComplete: function()
         {
             TweenMax.to(elem, 1.5, {top: "0px", ease: Bounce.easeOut});
         }});

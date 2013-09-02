@@ -5,7 +5,7 @@ html
 
 body
 {
-    background: #111;
+    background: #111 url(../images/bg.jpg) center repeat;
 }
 
 #demo
@@ -21,6 +21,7 @@ body
 
     #demo-content
     {
+        text-shadow: rgba(0,0,0,0.5) 0px -1px 0px;
         padding: 150px 0px;
 
         h1
@@ -68,6 +69,12 @@ h3.emitter
 
 .emitter
 {
+    transition: box-shadow 0.5s ease-in-out, background 0.5s ease-in-out, color 0.5s ease-in-out;
+    text-shadow: rgba(255,255,255,0.08) 0px 1px 0px;
+    box-shadow: rgba(0,0,0,0.7) 0px 1px 5px, rgba(255,255,255,0.05) 0px 0px 0px 1px inset;
+    background-color: #333;
+    color: #222;
+
     &.moving
     {
         border-radius: 30px;
@@ -81,51 +88,56 @@ h3.emitter
         font-size: 10px;
         text-align: center;
         line-height: 60px;
-        color: #ddd;
     }
 
-    &.neutral
+    &:hover
     {
-        background-color: #333;
-        color: #222;
-        //width: 50px;
-        //height: 150px;
-        //font-size: 10px;
-    }
-
-    &.fire
-    {
-        box-shadow: #FF2A00 0px 0px 30px inset, #E86413 0px 0px 40px, #FFF891 0px 0px 10px;
-        background-color: #FFF891;
-        color: #E86413;
-    }
-
-    &.ice
-    {
-        box-shadow: #44659E 0px 0px 30px inset, rgba(204, 231, 255, 0.5) 0px 0px 15px;
-        background-color: #BFE9F2;
-        color: #44659E;
-    }
-
-    &.smoke
-    {
-        box-shadow: #111 0px 0px 30px inset, #555 0px 0px 50px;
-        background-color: #777;
+        background-color: #555;
         color: #333;
     }
 
-    &.radiation
+    &.emitting
     {
-        box-shadow: #3BCF00 0px 0px 30px inset, #8DCF00 0px 0px 50px, #8DCF00 0px 0px 20px;
-        background-color: #B0CF00;
-        color: #1A7800;
-    }
+        &.neutral
+        {
+            background-color: #555;
+            color: #333;
+        }
 
-    &.default
-    {
-        box-shadow: #111 0px 0px 10px inset, #555 0px 0px 20px;
-        background-color: #777;
-        color: #fff;
+        &.fire
+        {
+            box-shadow: rgba(255,255,255,0.05) 0px 0px 0px 1px inset, #FF2A00 0px 0px 30px inset, #E86413 0px 0px 40px, #FFF891 0px 0px 10px;
+            background-color: #FFF891;
+            color: #E86413;
+        }
+
+        &.ice
+        {
+            box-shadow: rgba(255,255,255,0.05) 0px 0px 0px 1px inset, #44659E 0px 0px 30px inset, rgba(204, 231, 255, 0.5) 0px 0px 15px;
+            background-color: #BFE9F2;
+            color: #44659E;
+        }
+
+        &.smoke
+        {
+            box-shadow: rgba(255,255,255,0.05) 0px 0px 0px 1px inset, #111 0px 0px 30px inset, #555 0px 0px 50px;
+            background-color: #777;
+            color: #333;
+        }
+
+        &.radiation
+        {
+            box-shadow: rgba(255,255,255,0.05) 0px 0px 0px 1px inset, #3BCF00 0px 0px 30px inset, #8DCF00 0px 0px 20px;
+            background-color: #B0CF00;
+            color: #1A7800;
+        }
+
+        &.default
+        {
+            box-shadow: #111 0px 0px 10px inset, #555 0px 0px 20px;
+            background-color: #777;
+            color: #fff;
+        }
     }
 }
 
