@@ -18,7 +18,7 @@ This project is only an experiment at this stage but it's starting to get cool.
 TODOs
 -------------------------
 - [x] Add emitters velocity to particules
-- [ ] Move the perspective origin when user scrolls in the page
+- [x] Move the perspective origin when user scrolls in the page
 - [ ] Add a particule expand param
 - [ ] Add a particle state timeline param
 - [ ] Add force points (gravity or repulsion) that affects particles

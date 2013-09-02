@@ -1,7 +1,7 @@
 // create a particles engine
 var pe = new ParticlesEngine("#particles",
 {
-    //gravity: new Vector(0,300,-500) 
+    //gravity: new Vector(0,0,-500) 
 });
 
 var ParticlesLib = 
@@ -27,7 +27,7 @@ var ParticlesLib =
     {
         type: "smoke",
         src: "images/smoke.png",
-        lifetime: 4,
+        lifetime: 2,
         size: 130,
         mass: -0.8
     },
