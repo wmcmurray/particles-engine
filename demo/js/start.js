@@ -1,9 +1,3 @@
-// create a particles engine
-var pe = new ParticlesEngine("#particles",
-{
-    //gravity: new Vector(0,0,-500) 
-});
-
 var ParticlesLib = 
 {
     fire:
@@ -40,6 +34,9 @@ var ParticlesLib =
         mass: 0.8
     }
 }
+
+// create the default particles engine
+var pe = new ParticlesEngine();
 
 
 // titles
@@ -193,18 +190,21 @@ pe.createEmitter("#combined4",
     particles: ParticlesLib.smoke
 });
 
-// ---------------------------------------------
+
+// 3D cube
+// ==============================================================
 pe.createEmitter("#cubeEmitterFront",
 {
+    relative: true,
     pps: 20,
     spread: 100,
     from: "random",
     particles: ParticlesLib.fire
 });
 
-
 pe.createEmitter("#cubeEmitterBack",
 {
+    relative: true,
     pps: 5,
     spread: 100,
     from: "random",
@@ -213,6 +213,7 @@ pe.createEmitter("#cubeEmitterBack",
 
 pe.createEmitter("#cubeEmitterLeft",
 {
+    relative: true,
     pps: 5,
     spread: 100,
     from: "random",
@@ -221,11 +222,34 @@ pe.createEmitter("#cubeEmitterLeft",
 
 pe.createEmitter("#cubeEmitterRight",
 {
+    relative: true,
     pps: 5,
     spread: 100,
     from: "random",
     particles: ParticlesLib.radiation
 });
+
+
+// create a particles engine with no gravity for particles in 3D cube
+var pe2 = new ParticlesEngine(
+{
+    gravity: new Vector(0,0,0) 
+});
+
+var cubeMagicEmitt = pe2.createEmitter("#cubeEmitterDummy",
+{
+    relative: true,
+    spread: 1000,
+    particles:
+    {
+        rotate: new Vector(1,1,1),
+        size: 5,
+        lifetime: 3,
+        friction: 0.6
+    },
+    from: "center"
+})
+.burst(20);
 
 
 // some user interraction stuff
@@ -255,7 +279,7 @@ jQuery(".moving.emitter").each(function()
 
 
 
-TweenMax.to(".cube", 5, {rotationY: "360deg", y: 0, repeat: -1, ease: Linear.easeInOut});
+TweenMax.to(".rotate", 8, {rotationY: "360deg", y: 0, repeat: -1, ease: Linear.easeInOut});
 
 function onlyType(type)
 {
@@ -272,7 +296,20 @@ function onlyType(type)
     }
 }
 
+function toogle_class(sel,c)
+{
+    var s = jQuery(sel);
+    if(s.hasClass(c))
+    {
+        s.removeClass(c);
+    }
+    else
+    {
+        s.addClass(c);
+    }
+}
+
 
 jQuery(window).ready(function(){
-    jQuery("#auto-click").trigger("click");
+    //jQuery("#auto-click").trigger("click");
 });

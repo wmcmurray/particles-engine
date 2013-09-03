@@ -1,5 +1,19 @@
+.particles-engine-display
+{
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
 .particle
 {
+	transform-style: flat;
+	pointer-events: none;
 	position: absolute;
 	top: 0px;
 	left: 0px;

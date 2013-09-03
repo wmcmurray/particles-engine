@@ -13,93 +13,100 @@
 </head>
 
 <body>
-    <div id="particles"></div>
-
-    <div class="container" id="demo">
-        <div id="demo-nav">
-            <a href="javascript:void(0);" onclick="pe.startEmitters();" class="btn btn-inverse">start all</a>
-            <a href="javascript:void(0);" onclick="pe.stopEmitters();" class="btn btn-inverse">stop all</a>
-            -
-            <a href="javascript:void(0);" onclick="onlyType('fire');" class="btn btn-inverse">fire only</a>
-            <a href="javascript:void(0);" onclick="onlyType('ice');" class="btn btn-inverse" id="auto-click">ice only</a>
-            <a href="javascript:void(0);" onclick="onlyType('smoke');" class="btn btn-inverse">smoke only</a>
-            <a href="javascript:void(0);" onclick="onlyType('radiation');" class="btn btn-inverse">radiation only</a>
-            -
-            <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,300,0);" class="btn btn-inverse">gravity down</a>
-            <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,0,-500);" class="btn btn-inverse">gravity front</a>
-            <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,0,0);" class="btn btn-inverse">gravity none</a>
-        </div>
-
-        <div id="demo-content">
-            <h1>3D Particles Engine demo</h1>
-            <div class="help">*click on emitters to toogle them ON/OFF</div>
-
-            <h2>Emitters in a 3D cube (experimental)</h2>
-
-            <div class="scene3D">
-                <div id="cubeNav">
-                    <a href="javascript:void(0);" onclick="TweenMax.to('.cube', 1, {rotationX: '90deg'});" class="btn btn-inverse">up</a>
-                    <a href="javascript:void(0);" onclick="TweenMax.to('.cube', 1, {rotationX: '0deg'});" class="btn btn-inverse">center</a>
-                    <a href="javascript:void(0);" onclick="TweenMax.to('.cube', 1, {rotationX: '-90deg'});" class="btn btn-inverse">down</a>
-                </div>
-                <div class="cube">
-                    <!-- <div id="cubeEmitter" class="fire emitter">FIRE</div> -->
-                    <div class="face front fire emitter" id="cubeEmitterFront">FIRE</div>
-                    <div class="face back ice emitter" id="cubeEmitterBack">ICE</div>
-                    <div class="face top emitter" id="cubeEmitterTop"></div>
-                    <div class="face bottom emitter" id="cubeEmitterBottom"></div>
-                    <div class="face left smoke emitter" id="cubeEmitterLeft">SMOKE</div>
-                    <div class="face right radiation emitter" id="cubeEmitterRight">RADIATION</div>
-                </div>
+    <div id="demo">
+        <div class="container">
+            <div id="demo-nav">
+                <a href="javascript:void(0);" onclick="pe.startEmitters();" class="btn btn-inverse">start all</a>
+                <a href="javascript:void(0);" onclick="pe.stopEmitters();" class="btn btn-inverse">stop all</a>
+                -
+                <a href="javascript:void(0);" onclick="onlyType('fire');" class="btn btn-inverse">fire only</a>
+                <a href="javascript:void(0);" onclick="onlyType('ice');" class="btn btn-inverse" id="auto-click">ice only</a>
+                <a href="javascript:void(0);" onclick="onlyType('smoke');" class="btn btn-inverse">smoke only</a>
+                <a href="javascript:void(0);" onclick="onlyType('radiation');" class="btn btn-inverse">radiation only</a>
+                -
+                <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,300,0);" class="btn btn-inverse">gravity down</a>
+                <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,0,-500);" class="btn btn-inverse">gravity front</a>
+                <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,0,0);" class="btn btn-inverse">gravity none</a>
             </div>
 
-            <h2>Fixed basic emitters</h2>
-            <div class="row">
-                <div class="span3">
-                    <h3 id="fireTitle" class="fire emitter">FIRE</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
-                    
-                </div>
-                <div class="span3">
-                    <h3 id="iceTitle" class="ice emitter">ICE</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
-                </div>
-                <div class="span3">
-                    <h3 id="smokeTitle" class="smoke emitter">SMOKE</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
-                </div>
-                <div class="span3">
-                    <h3 id="radiationTitle" class="radiation emitter">RADIATION</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
-                </div>
-            </div>
+            <div id="demo-content">
+                <h1>3D Particles Engine demo</h1>
+                <div class="help">*click on emitters to toogle them ON/OFF</div>
 
-            <h2>Fixed combined emitters</h2>
-            <div class="row">
-                <div class="span3">
-                    <h3 id="combined1" class="neutral emitter">FIRE + SMOKE</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
-                    
-                </div>
-                <div class="span3">
-                    <h3 id="combined2" class="neutral emitter">FIRE + ICE</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
-                </div>
-                <div class="span3">
-                    <h3 id="combined3" class="neutral emitter">RAD + SMOKE</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
-                </div>
-                <div class="span3">
-                    <h3 id="combined4" class="neutral emitter">EVERYTHING!</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
-                </div>
-            </div>
+                <h2>Emitters in a 3D cube (experimental)</h2>
 
-            <h2>Moving emitters</h2>
-            <div id="fireBall" class="fire moving emitter">FIRE</div>
-            <div id="iceBall" class="ice moving emitter">ICE</div>
-            <div id="smokeBall" class="smoke moving emitter">SMOKE</div>
-            <div id="radiationBall" class="radiation moving emitter">RAD</div>
+                <div class="scene3D">
+                    <div id="cubeNav">
+                        rotation:
+                        <a href="javascript:void(0);" onclick="TweenMax.to('.cube', 1, {rotationX: '90deg'});" class="btn btn-inverse">up</a>
+                        <a href="javascript:void(0);" onclick="TweenMax.to('.cube', 1, {rotationX: '0deg'});" class="btn btn-inverse">center</a>
+                        <a href="javascript:void(0);" onclick="TweenMax.to('.cube', 1, {rotationX: '-90deg'});" class="btn btn-inverse">down</a>
+                        toogle:
+                        <a href="javascript:void(0);" onclick="toogle_class('.cube', 'overflow');" class="btn btn-inverse">overflow</a>
+                        <a href="javascript:void(0);" onclick="toogle_class('.cube', 'transparent');" class="btn btn-inverse">glow</a>
+                        burst:
+                        <a href="javascript:void(0);" onclick="cubeMagicEmitt.reset().burst(10);" class="btn btn-inverse">burst x10</a>
+                        <a href="javascript:void(0);" onclick="cubeMagicEmitt.reset().burst(50);" class="btn btn-inverse">burst x50</a>
+                    </div>
+                    <div class="cube rotate">
+                        <div class="face front fire emitter" id="cubeEmitterFront"><span>FIRE</span></div>
+                        <div class="face back ice emitter" id="cubeEmitterBack"><span>ICE</span></div>
+                        <div class="face top emitter" id="cubeEmitterTop"></div>
+                        <div class="face bottom emitter" id="cubeEmitterBottom"></div>
+                        <div class="face left smoke emitter" id="cubeEmitterLeft"><span>SMOKE</span></div>
+                        <div class="face right radiation emitter" id="cubeEmitterRight"><span>RADIATION</span></div>
+                        <div id="cubeEmitterDummy"></div>
+                    </div>
+                </div>
+
+                <h2>Fixed basic emitters</h2>
+                <div class="row">
+                    <div class="span3">
+                        <h3 id="fireTitle" class="fire emitter">FIRE</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                        
+                    </div>
+                    <div class="span3">
+                        <h3 id="iceTitle" class="ice emitter">ICE</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                    </div>
+                    <div class="span3">
+                        <h3 id="smokeTitle" class="smoke emitter">SMOKE</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                    </div>
+                    <div class="span3">
+                        <h3 id="radiationTitle" class="radiation emitter">RADIATION</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                    </div>
+                </div>
+
+                <h2>Fixed combined emitters</h2>
+                <div class="row">
+                    <div class="span3">
+                        <h3 id="combined1" class="neutral emitter">FIRE + SMOKE</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                        
+                    </div>
+                    <div class="span3">
+                        <h3 id="combined2" class="neutral emitter">FIRE + ICE</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                    </div>
+                    <div class="span3">
+                        <h3 id="combined3" class="neutral emitter">RAD + SMOKE</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                    </div>
+                    <div class="span3">
+                        <h3 id="combined4" class="neutral emitter">EVERYTHING!</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sagittis, leo a cursus rhoncus, nibh est pretium sem, nec consectetur purus sapien quis est. Mauris vitae rhoncus nisi. Fusce lectus urna, fringilla nec tortor ut, facilisis imperdiet elit. In dignissim nunc tortor, eu blandit mi porta ut. Nunc id augue interdum, adipiscing enim nec, pellentesque est. Vivamus nunc elit, venenatis et dolor et, imperdiet dapibus urna. Cras volutpat neque quam, id posuere magna lobortis non. Praesent pharetra consectetur laoreet.</p>
+                    </div>
+                </div>
+
+                <h2>Moving emitters</h2>
+                <div id="fireBall" class="fire moving emitter">FIRE</div>
+                <div id="iceBall" class="ice moving emitter">ICE</div>
+                <div id="smokeBall" class="smoke moving emitter">SMOKE</div>
+                <div id="radiationBall" class="radiation moving emitter">RAD</div>
+            </div>
         </div>
     </div>
 

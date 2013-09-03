@@ -19,8 +19,13 @@ TODOs
 -------------------------
 - [x] Add emitters velocity to particules
 - [x] Move the perspective origin when user scrolls in the page
+- [ ] Add a param to force particules to face viewer screen
+- [ ] Add possibility to manually define the parent containing particles of an emitter
+- [ ] Create a periodic burst emitter to do things like sparks
+- [ ] Add a param for "3d" sounds effects ! (when burst occurs and when emitting)
 - [ ] Add a particule expand param
-- [ ] Add a particle state timeline param
+- [ ] Add possibility to create gravity zones
 - [ ] Add force points (gravity or repulsion) that affects particles
 - [ ] Add wind effects
 - [ ] Add collision detection over defined DOM elements
+- [ ] Add a particle state timeline param
