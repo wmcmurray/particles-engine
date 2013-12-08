@@ -243,9 +243,9 @@ var cubeMagicEmitt = pe2.createEmitter("#cubeEmitterDummy",
     particles:
     {
         rotate: new Vector(1,1,1),
-        size: 5,
+        size: [5,10],
         lifetime: 3,
-        friction: 0.6
+        friction: 0.4
     },
     from: "center"
 })
