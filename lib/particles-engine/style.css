@@ -1,13 +1,22 @@
-.particles-engine-display
+.particles-engine-display, .particles-engine-display-canvas
 {
-    pointer-events: none;
+	pointer-events: none;
     position: absolute;
     z-index: 1;
     top: 0px;
     left: 0px;
+}
+
+.particles-engine-display
+{
     overflow: hidden;
     width: 100%;
-    height: inherit;
+    height: 100%;
+}
+
+.particles-engine-display-canvas
+{
+    /*background: rgba(0,255,0,0.1);*/
 }
 
 .particle

@@ -1,4 +1,4 @@
-Particles Engine v0.0.1
+Particles Engine v0.0.2
 =================
 
 This project is only an experiment at this stage but it's starting to get cool.

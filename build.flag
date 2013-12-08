@@ -1,6 +1,7 @@
 --js lib/particles-engine/Vector.js 
 --js lib/particles-engine/Particle.js 
---js lib/particles-engine/ParticlesEmitter.js 
+--js lib/particles-engine/Emitter.js 
+--js lib/particles-engine/Environment.js 
 --js lib/particles-engine/ParticlesEngine.js 
 
 --compilation_level WHITESPACE_ONLY 

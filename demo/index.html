@@ -16,17 +16,17 @@
     <div id="demo">
         <div class="container">
             <div id="demo-nav">
-                <a href="javascript:void(0);" onclick="pe.startEmitters();" class="btn btn-inverse">start all</a>
-                <a href="javascript:void(0);" onclick="pe.stopEmitters();" class="btn btn-inverse">stop all</a>
+                <a href="javascript:void(0);" onclick="env.startEmitters();" class="btn btn-inverse">start all</a>
+                <a href="javascript:void(0);" onclick="env.stopEmitters();" class="btn btn-inverse">stop all</a>
                 -
                 <a href="javascript:void(0);" onclick="onlyType('fire');" class="btn btn-inverse">fire only</a>
                 <a href="javascript:void(0);" onclick="onlyType('ice');" class="btn btn-inverse" id="auto-click">ice only</a>
                 <a href="javascript:void(0);" onclick="onlyType('smoke');" class="btn btn-inverse">smoke only</a>
                 <a href="javascript:void(0);" onclick="onlyType('radiation');" class="btn btn-inverse">radiation only</a>
                 -
-                <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,300,0);" class="btn btn-inverse">gravity down</a>
-                <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,0,-500);" class="btn btn-inverse">gravity front</a>
-                <a href="javascript:void(0);" onclick="pe.params.gravity = new Vector(0,0,0);" class="btn btn-inverse">gravity none</a>
+                <a href="javascript:void(0);" onclick="env.params.gravity = new Vector(0,300,0);" class="btn btn-inverse">gravity down</a>
+                <a href="javascript:void(0);" onclick="env.params.gravity = new Vector(0,0,-500);" class="btn btn-inverse">gravity front</a>
+                <a href="javascript:void(0);" onclick="env.params.gravity = new Vector(0,0,0);" class="btn btn-inverse">gravity none</a>
             </div>
 
             <div id="demo-content">
@@ -111,11 +111,13 @@
     </div>
 
     <!-- JavaScript files -->
+    <script src="../lib/vendor/raf.js"></script>
     <script src="../lib/vendor/jquery-2.0.2.min.js"></script>
     <script src="../lib/vendor/greensock/TweenMax.min.js"></script>
     <script src="../lib/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="../lib/particles-engine/ParticlesEngine.js"></script>
-    <script src="../lib/particles-engine/ParticlesEmitter.js"></script>
+    <script src="../lib/particles-engine/Environment.js"></script>
+    <script src="../lib/particles-engine/Emitter.js"></script>
     <script src="../lib/particles-engine/Particle.js"></script>
     <script src="../lib/particles-engine/Vector.js"></script>
     <script src="js/start.js"></script>

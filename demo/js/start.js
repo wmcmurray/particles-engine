@@ -35,13 +35,16 @@ var ParticlesLib =
     }
 }
 
-// create the default particles engine
-var pe = new ParticlesEngine();
+// init the particles engine
+ParticlesEngine.init();
+
+// create the default environment
+var env = ParticlesEngine.createEnvironment();
 
 
 // titles
 // ==============================================================
-pe.createEmitter("#fireTitle",
+env.createEmitter("#fireTitle",
 {
     pps: 10,
     spread: 100,
@@ -49,7 +52,7 @@ pe.createEmitter("#fireTitle",
     particles: ParticlesLib.fire
 });
 
-pe.createEmitter("#iceTitle",
+env.createEmitter("#iceTitle",
 {
     pps: 5,
     spread: 60,
@@ -57,7 +60,7 @@ pe.createEmitter("#iceTitle",
     particles: ParticlesLib.ice
 });
 
-pe.createEmitter("#smokeTitle",
+env.createEmitter("#smokeTitle",
 {
     pps: 5,
     spread: 50,
@@ -65,7 +68,7 @@ pe.createEmitter("#smokeTitle",
     particles: ParticlesLib.smoke
 });
 
-pe.createEmitter("#radiationTitle",
+env.createEmitter("#radiationTitle",
 {
     pps: 5,
     spread: 20,
@@ -76,28 +79,28 @@ pe.createEmitter("#radiationTitle",
 
 // balls
 // ==============================================================
-pe.createEmitter("#fireBall",
+env.createEmitter("#fireBall",
 {
     pps: 5,
     spread: 100,
     particles: ParticlesLib.fire
 });
 
-pe.createEmitter("#iceBall",
+env.createEmitter("#iceBall",
 {
     pps: 5,
     spread: 60,
     particles: ParticlesLib.ice
 });
 
-pe.createEmitter("#smokeBall",
+env.createEmitter("#smokeBall",
 {
     pps: 5,
     spread: 50,
     particles: ParticlesLib.smoke
 });
 
-pe.createEmitter("#radiationBall",
+env.createEmitter("#radiationBall",
 {
     pps: 5,
     spread: 20,
@@ -107,7 +110,7 @@ pe.createEmitter("#radiationBall",
 
 // combined
 // ==============================================================
-pe.createEmitter("#combined1",
+env.createEmitter("#combined1",
 {
     pps: 8,
     spread: 100,
@@ -115,7 +118,7 @@ pe.createEmitter("#combined1",
     particles: ParticlesLib.fire
 });
 
-pe.createEmitter("#combined1",
+env.createEmitter("#combined1",
 {
     pps: 5,
     spread: 100,
@@ -124,7 +127,7 @@ pe.createEmitter("#combined1",
 });
 
 // ---------------------------------------------
-pe.createEmitter("#combined2",
+env.createEmitter("#combined2",
 {
     pps: 8,
     spread: 100,
@@ -132,7 +135,7 @@ pe.createEmitter("#combined2",
     particles: ParticlesLib.ice
 });
 
-pe.createEmitter("#combined2",
+env.createEmitter("#combined2",
 {
     pps: 5,
     spread: 100,
@@ -141,7 +144,7 @@ pe.createEmitter("#combined2",
 });
 
 // ---------------------------------------------
-pe.createEmitter("#combined3",
+env.createEmitter("#combined3",
 {
     pps: 5,
     spread: 100,
@@ -149,7 +152,7 @@ pe.createEmitter("#combined3",
     particles: ParticlesLib.radiation
 });
 
-pe.createEmitter("#combined3",
+env.createEmitter("#combined3",
 {
     pps: 5,
     spread: 100,
@@ -158,7 +161,7 @@ pe.createEmitter("#combined3",
 });
 
 // ---------------------------------------------
-pe.createEmitter("#combined4",
+env.createEmitter("#combined4",
 {
     pps: 5,
     spread: 100,
@@ -166,7 +169,7 @@ pe.createEmitter("#combined4",
     particles: ParticlesLib.fire
 });
 
-pe.createEmitter("#combined4",
+env.createEmitter("#combined4",
 {
     pps: 5,
     spread: 100,
@@ -174,7 +177,7 @@ pe.createEmitter("#combined4",
     particles: ParticlesLib.ice
 });
 
-pe.createEmitter("#combined4",
+env.createEmitter("#combined4",
 {
     pps: 5,
     spread: 100,
@@ -182,7 +185,7 @@ pe.createEmitter("#combined4",
     particles: ParticlesLib.radiation
 });
 
-pe.createEmitter("#combined4",
+env.createEmitter("#combined4",
 {
     pps: 5,
     spread: 100,
@@ -193,7 +196,7 @@ pe.createEmitter("#combined4",
 
 // 3D cube
 // ==============================================================
-pe.createEmitter("#cubeEmitterFront",
+env.createEmitter("#cubeEmitterFront",
 {
     relative: true,
     pps: 20,
@@ -202,7 +205,7 @@ pe.createEmitter("#cubeEmitterFront",
     particles: ParticlesLib.fire
 });
 
-pe.createEmitter("#cubeEmitterBack",
+env.createEmitter("#cubeEmitterBack",
 {
     relative: true,
     pps: 5,
@@ -211,7 +214,7 @@ pe.createEmitter("#cubeEmitterBack",
     particles: ParticlesLib.ice
 });
 
-pe.createEmitter("#cubeEmitterLeft",
+env.createEmitter("#cubeEmitterLeft",
 {
     relative: true,
     pps: 5,
@@ -220,7 +223,7 @@ pe.createEmitter("#cubeEmitterLeft",
     particles: ParticlesLib.smoke
 });
 
-pe.createEmitter("#cubeEmitterRight",
+env.createEmitter("#cubeEmitterRight",
 {
     relative: true,
     pps: 5,
@@ -230,13 +233,14 @@ pe.createEmitter("#cubeEmitterRight",
 });
 
 
-// create a particles engine with no gravity for particles in 3D cube
-var pe2 = new ParticlesEngine(
+// create a particles environment with no gravity for particles in 3D cube
+var env2 = ParticlesEngine.createEnvironment(
 {
-    gravity: new Vector(0,0,0) 
+    gravity: new Vector(0,0,0),
+    friction: 0.4
 });
 
-var cubeMagicEmitt = pe2.createEmitter("#cubeEmitterDummy",
+var cubeMagicEmitt = env2.createEmitter("#cubeEmitterDummy",
 {
     relative: true,
     spread: 1000,
@@ -245,7 +249,7 @@ var cubeMagicEmitt = pe2.createEmitter("#cubeEmitterDummy",
         rotate: new Vector(1,1,1),
         size: [5,10],
         lifetime: 3,
-        friction: 0.4
+        round: false
     },
     from: "center"
 })
@@ -254,9 +258,9 @@ var cubeMagicEmitt = pe2.createEmitter("#cubeEmitterDummy",
 
 // some user interraction stuff
 // ==============================================================
-for(var i in pe.emitters)
+for(var i in env.emitters)
 {
-    jQuery(pe.emitters[i].parent)
+    jQuery(env.emitters[i].parent)
     .css({cursor: "pointer"})
     .attr("onclick", "for(var i in this.emitters){ this.emitters[i].toogle(); }");
 }
@@ -283,15 +287,15 @@ TweenMax.to(".rotate", 8, {rotationY: "360deg", y: 0, repeat: -1, ease: Linear.e
 
 function onlyType(type)
 {
-    for(var i in pe.emitters)
+    for(var i in env.emitters)
     {
-        if(pe.emitters[i].params.particles.type == type && pe.emitters[i].parent.emitters.length <= 1)
+        if(env.emitters[i].params.particles.type == type && env.emitters[i].parent.emitters.length <= 1)
         {
-            pe.emitters[i].start();
+            env.emitters[i].start();
         }
         else
         {
-            pe.emitters[i].stop();
+            env.emitters[i].stop();
         }
     }
 }
